@@ -22,3 +22,18 @@ def test_submit_form():
    browser.element('#submit').click()
 
 
+   browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
+   browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr').should(have.exact_texts(
+      'Label Values',
+      'Student Name Polina Mokretsova',
+      'Student Email Polina@polina.com',
+      'Gender Female', 'Mobile 8123456789',
+      'Date of Birth 25 June,202225',
+      'Subjects English',
+      'Hobbies Sports',
+      'Picture котик.png',
+      'Address Yekatetinburg',
+      'State and City Haryana Karnal'
+   ))
+
+
