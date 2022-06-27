@@ -10,18 +10,27 @@ def test_submit_form():
    browser.element('#firstName').type('Polina')
    browser.element('#lastName').type('Mokretsova')
    browser.element('#userEmail').type('Polina@polina.com')
+
    browser.element('[for="gender-radio-2"]').click()
+
    browser.element('#userNumber').type('8123456789')
+
    browser.element('#dateOfBirthInput').click()
    browser.element('[value="1999"]').click()
    browser.element('[value="6"]').click()
    browser.element('div[aria-label="Choose Monday, July 26th, 1999"]').click()
+
    browser.element('#subjectsInput').type('English').press_enter()
+
    browser.element('[for="hobbies-checkbox-1"]').click()
+
    browser.element('#uploadPicture').type("/Users/mokretsova/PycharmProjects/demoqa_tests/tests/котик.png")
+
    browser.element('#currentAddress').type('Yekatetinburg')
+
    browser.element('#react-select-3-input').type('Haryana').press_enter()
    browser.element('#react-select-4-input').type('Karnal').press_enter()
+
    browser.element('#submit').click()
 
 
