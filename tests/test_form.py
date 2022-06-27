@@ -1,25 +1,25 @@
 from selene.support.shared import browser
-from selene import be, have, command
-import pytest
+from selene import be, have
+
 
 
 def test_submit_form():
    browser.open('/automation-practice-form')
 
 
-   browser.element('#firstName').should(be.blank).type('Polina')
-   browser.element('#lastName').should(be.blank).type('Mokretsova')
-   browser.element('#userEmail').should(be.blank).type('Polina@polina.com')
+   browser.element('#firstName').type('Polina')
+   browser.element('#lastName').type('Mokretsova')
+   browser.element('#userEmail').type('Polina@polina.com')
    browser.element('[for="gender-radio-2"]').click()
-   browser.element('#userNumber').should(be.blank).type('8123456789')
+   browser.element('#userNumber').type('8123456789')
    browser.element('#dateOfBirthInput').click()
    browser.element('[value="1999"]').click()
    browser.element('[value="6"]').click()
    browser.element('div[aria-label="Choose Monday, July 26th, 1999"]').click()
-   browser.element('#subjectsInput').should(be.blank).type('English').press_enter()
+   browser.element('#subjectsInput').type('English').press_enter()
    browser.element('[for="hobbies-checkbox-1"]').click()
    browser.element('#uploadPicture').type("/Users/mokretsova/PycharmProjects/demoqa_tests/tests/котик.png")
-   browser.element('#currentAddress').should(be.blank).type('Yekatetinburg')
+   browser.element('#currentAddress').type('Yekatetinburg')
    browser.element('#react-select-3-input').type('Haryana').press_enter()
    browser.element('#react-select-4-input').type('Karnal').press_enter()
    browser.element('#submit').click()
