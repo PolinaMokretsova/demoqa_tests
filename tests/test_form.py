@@ -9,7 +9,7 @@ from pathlib import Path
 def test_submit_form():
     browser.open('/automation-practice-form')
 
-
+    #when
     browser.element('#firstName').type('Polina')
     browser.element('#lastName').type('Mokretsova')
     browser.element('#userEmail').type('Polina@polina.com')
@@ -36,19 +36,30 @@ def test_submit_form():
 
     browser.element('#submit').click()
 
-
+    #then
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
-    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr').should(have.texts(
-      'Label Values'))
-      #'Student Name Polina Mokretsova',
-    #  'Student Email Polina@polina.com',
-    #  'Gender Female', 'Mobile 8123456789',
-     # 'Date of Birth 26 July,1999',
-    #  'Subjects English',
-     # 'Hobbies Sports',
-     # 'Picture котик.png',
-   #   'Address Yekatetinburg',
-    #  'State and City Haryana Karnal'
- #  ))
+    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr')[1].should(have.exact_text(
+      'Student Name Polina Mokretsova'))
+    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr')[2].should(have.exact_text(
+        'Student Email Polina@polina.com'))
+    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr')[3].should(have.exact_text(
+        'Gender Female'))
+    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr')[4].should(have.exact_text(
+        'Mobile 8123456789'))
+    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr')[5].should(have.exact_text(
+        'Date of Birth 26 July,1999'))
+    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr')[6].should(have.exact_text(
+        'Subjects English'))
+    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr')[7].should(have.exact_text(
+        'Hobbies Sports'))
+    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr')[8].should(have.exact_text(
+        'Picture котик.png'))
+    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr')[9].should(have.exact_text(
+        'Address Yekatetinburg'))
+    browser.all('[class="table table-dark table-striped table-bordered table-hover"] tr')[10].should(have.exact_text(
+        'State and City Haryana Karnal'))
+
+
+
 
 
