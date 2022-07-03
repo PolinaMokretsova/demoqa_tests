@@ -3,12 +3,14 @@ from xml.etree.ElementTree import Element
 
 from selene.core.entity import SeleneElement
 from selene.support.shared import browser
-from selene import have
+from selene import have, command
 from selene.support.shared import browser
-from demoqa_tests.controls import dropdown
+from demoqa_tests.controls import dropdown, datepicker
 from demoqa_tests.controls.resourse import resourse
 #from demoqa_tests.controls import tags_input
+from demoqa_tests.controls.tags_input import element
 from demoqa_tests.controls.tags_input_ import TagsInput
+from demoqa_tests.controls.datepicker import select_from_list
 
 
 def test_submit_form():
@@ -23,10 +25,8 @@ def test_submit_form():
 
     browser.element('#userNumber').type('8123456789')
 
-    browser.element('#dateOfBirthInput').click()
-    browser.element('[value="1999"]').click()
-    browser.element('[value="6"]').click()
-    browser.element('div[aria-label="Choose Monday, July 26th, 1999"]').click()
+    datepicker.explicit_input(browser.element('#dateOfBirthInput'), option= '31 Jul 1980')
+
 
     subjects = TagsInput(browser.element('#subjectsInput'))
     subjects.add('Eng', autocomplete='English')
