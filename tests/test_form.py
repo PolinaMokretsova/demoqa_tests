@@ -1,7 +1,7 @@
 
 from selene import have, command
 from selene.support.shared import browser
-from demoqa_tests.controls import dropdown, datepicker, table
+from demoqa_tests.controls import dropdown, datepicker
 from demoqa_tests.controls.table import cells_of_row
 from demoqa_tests.controls.resourse import resourse
 from demoqa_tests.controls.tags_input_ import TagsInput
@@ -39,12 +39,12 @@ def test_submit_form():
     # then
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
 
-    result = table.cells_of_row
+    result = cells_of_row
     result(0).should(have.exact_texts('Student Name', 'Polina Mokretsova'))
     result(1).should(have.exact_texts('Student Email', 'Polina@polina.com'))
     result(2).should(have.exact_texts('Gender', 'Female'))
     result(3).should(have.exact_texts('Mobile', '8123456789'))
-    result(4).should(have.exact_texts('Date of Birth', '03 July,2022'))
+    result(4).should(have.exact_texts('Date of Birth', '05 July,2022'))
     result(5).should(have.exact_texts('Subjects', 'English, Maths'))
     result(6).should(have.exact_texts('Hobbies', 'Sports'))
     result(7).should(have.exact_texts('Picture', 'котик.png'))
