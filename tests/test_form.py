@@ -2,6 +2,7 @@
 from selene import have, command
 from selene.support.shared import browser
 from demoqa_tests.controls import dropdown, datepicker
+from demoqa_tests.controls.dropdown import Dropdown
 from demoqa_tests.controls.table import cells_of_row
 from demoqa_tests.controls.resourse import resourse
 from demoqa_tests.controls.tags_input_ import TagsInput
@@ -31,8 +32,11 @@ def test_submit_form():
 
     browser.element('#currentAddress').type('Yekatetinburg')
 
-    dropdown.select(browser.element('#state'), option='Haryana')
-    dropdown.select(browser.element('#city'), option='Karnal')
+    states = Dropdown(browser.element('#state'))
+    states.select(option='Haryana')
+
+    city = Dropdown(browser.element('#city'))
+    city.select(option='Karnal')
 
     browser.element('#submit').click()
 
