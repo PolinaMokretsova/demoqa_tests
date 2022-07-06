@@ -47,17 +47,17 @@ def test_submit_form():
     # then
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
 
-    result = Table.cells_of_row
-    result(0).should(have.exact_texts('Student Name', 'Polina Mokretsova'))
-    result(1).should(have.exact_texts('Student Email', 'Polina@polina.com'))
-    result(2).should(have.exact_texts('Gender', 'Female'))
-    result(3).should(have.exact_texts('Mobile', '8123456789'))
-    result(4).should(have.exact_texts('Date of Birth', '06 July,2022'))
-    result(5).should(have.exact_texts('Subjects', 'English, Maths'))
-    result(6).should(have.exact_texts('Hobbies', 'Sports'))
-    result(7).should(have.exact_texts('Picture', 'котик.png'))
-    result(8).should(have.exact_texts('Address', 'Yekatetinburg'))
-    result(9).should(have.exact_texts('State and City', 'Haryana Karnal'))
+    result = Table(browser.element('.modal-content .table'))
+    result.cells_of_row(0).should(have.exact_texts('Student Name', 'Polina Mokretsova'))
+    result.cells_of_row(1).should(have.exact_texts('Student Email', 'Polina@polina.com'))
+    result.cells_of_row(2).should(have.exact_texts('Gender', 'Female'))
+    result.cells_of_row(3).should(have.exact_texts('Mobile', '8123456789'))
+    result.cells_of_row(4).should(have.exact_texts('Date of Birth', '06 July,2022'))
+    result.cells_of_row(5).should(have.exact_texts('Subjects', 'English, Maths'))
+    result.cells_of_row(6).should(have.exact_texts('Hobbies', 'Sports'))
+    result.cells_of_row(7).should(have.exact_texts('Picture', 'котик.png'))
+    result.cells_of_row(8).should(have.exact_texts('Address', 'Yekatetinburg'))
+    result.cells_of_row(9).should(have.exact_texts('State and City', 'Haryana Karnal'))
 
 
 
