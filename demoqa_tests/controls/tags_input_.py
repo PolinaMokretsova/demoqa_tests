@@ -14,4 +14,6 @@ class TagsInput:
             '.subjects-auto-complete__option'
         ).element_by(have.text(autocomplete or from_)).click()
 
+    def autocomplete(self, option: str):
+        self.element.type(option).press_enter()
 
