@@ -48,7 +48,7 @@ def test_submit_form():
     result(1).should(have.exact_texts('Student Email', 'Polina@polina.com'))
     result(2).should(have.exact_texts('Gender', 'Female'))
     result(3).should(have.exact_texts('Mobile', '8123456789'))
-    result(4).should(have.exact_texts('Date of Birth', '05 July,2022'))
+    result(4).should(have.exact_texts('Date of Birth', '06 July,2022'))
     result(5).should(have.exact_texts('Subjects', 'English, Maths'))
     result(6).should(have.exact_texts('Hobbies', 'Sports'))
     result(7).should(have.exact_texts('Picture', 'котик.png'))
