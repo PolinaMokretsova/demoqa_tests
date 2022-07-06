@@ -2,6 +2,7 @@
 from selene import have, command
 from selene.support.shared import browser
 from demoqa_tests.controls import dropdown, datepicker
+from demoqa_tests.controls.datepicker import DatePicker
 from demoqa_tests.controls.dropdown import Dropdown
 from demoqa_tests.controls.table import cells_of_row
 from demoqa_tests.controls.resourse import resourse
@@ -20,7 +21,8 @@ def test_submit_form():
 
     browser.element('#userNumber').type('8123456789')
 
-    datepicker.explicit_input(browser.element('#dateOfBirthInput'), option= '31 Jul 1980')
+    DateOfBirth = DatePicker(browser.element('#dateOfBirthInput'))
+    DateOfBirth.explicit_input(option= '31 Jul 1980')
 
     subjects = TagsInput(browser.element('#subjectsInput'))
     subjects.add('Eng', autocomplete='English')
