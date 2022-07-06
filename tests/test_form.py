@@ -1,8 +1,7 @@
 
 from selene import have, command
 from selene.support.shared import browser
-from demoqa_tests.controls import dropdown, datepicker
-from demoqa_tests.controls.datepicker import DatePicker
+from demoqa_tests.controls.datepicker import  DatePicker
 from demoqa_tests.controls.dropdown import Dropdown
 from demoqa_tests.controls.table import cells_of_row
 from demoqa_tests.controls.resourse import resourse
@@ -17,7 +16,8 @@ def test_submit_form():
     browser.element('#lastName').type('Mokretsova')
     browser.element('#userEmail').type('Polina@polina.com')
 
-    browser.element('[for="gender-radio-2"]').click()
+    gender_female = '[for=gender-radio-2]'
+    browser.element(gender_female).click()
 
     browser.element('#userNumber').type('8123456789')
 
@@ -28,7 +28,8 @@ def test_submit_form():
     subjects.add('Eng', autocomplete='English')
     subjects.add('Maths')
 
-    browser.element('[for="hobbies-checkbox-1"]').click()
+    Hobbie_sports = '[for="hobbies-checkbox-1"]'
+    browser.element(Hobbie_sports).click()
 
     browser.element('#uploadPicture').send_keys(resourse('котик.png'))
 
