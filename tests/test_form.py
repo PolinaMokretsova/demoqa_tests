@@ -28,6 +28,7 @@ def test_submit_form():
     subjects.add('Eng', autocomplete='English')
     subjects.add('Maths')
 
+
     Hobbie_sports = '[for="hobbies-checkbox-1"]'
     browser.element(Hobbie_sports).click()
 
