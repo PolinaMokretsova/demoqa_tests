@@ -3,7 +3,7 @@ from selene import have, command
 from selene.support.shared import browser
 from demoqa_tests.controls.datepicker import  DatePicker
 from demoqa_tests.controls.dropdown import Dropdown
-from demoqa_tests.controls.table import cells_of_row
+from demoqa_tests.controls.table import Table
 from demoqa_tests.controls.resourse import resourse
 from demoqa_tests.controls.tags_input_ import TagsInput
 
@@ -47,7 +47,7 @@ def test_submit_form():
     # then
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
 
-    result = cells_of_row
+    result = Table.cells_of_row
     result(0).should(have.exact_texts('Student Name', 'Polina Mokretsova'))
     result(1).should(have.exact_texts('Student Email', 'Polina@polina.com'))
     result(2).should(have.exact_texts('Gender', 'Female'))
