@@ -1,11 +1,8 @@
 
 from selene import have
 from selene.support.shared import browser
-
 from demoqa_tests.model import app
-from demoqa_tests.model.pages.Student_registration_form import StudentRegistrationForm
-from demoqa_tests.model.controls.tags_input_ import TagsInput
-from demoqa_tests.model.pages.modal_dialog import ModalDialog
+
 
 
 def test_submit_form():
@@ -19,9 +16,6 @@ def test_submit_form():
     app.form.addNumber('8123456789')
 
     app.form.set_birth_date('31 Jul 1980')
-
-    #subjects = TagsInput(browser.element('#subjectsInput'))
-    #subjects.add('Eng', autocomplete='English').add('Maths')
 
     app.form.addSubjects('English', 'Maths')
 
