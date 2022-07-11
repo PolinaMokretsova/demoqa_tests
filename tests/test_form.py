@@ -20,10 +20,10 @@ def test_submit_form():
 
     app.form.set_birth_date('31 Jul 1980')
 
-    subjects = TagsInput(browser.element('#subjectsInput'))
-    subjects.add('Eng', autocomplete='English').add('Maths')
+    #subjects = TagsInput(browser.element('#subjectsInput'))
+    #subjects.add('Eng', autocomplete='English').add('Maths')
 
-    #app.form.addSubjects('Eng', autocomplete='English').add('Maths')
+    app.form.addSubjects('English', 'Maths')
 
     app.form.addHobbies('Sports')
 
@@ -42,7 +42,7 @@ def test_submit_form():
     app.results.should_Have_Exact_Texts('Student Email', 'Polina@polina.com')
     app.results.should_Have_Exact_Texts('Gender', 'Female')
     app.results.should_Have_Exact_Texts('Mobile', '8123456789')
-    app.results.should_Have_Exact_Texts('Date of Birth', '08 July,2022')
+    app.results.should_Have_Exact_Texts('Date of Birth', '11 July,2022')
     app.results.should_Have_Exact_Texts('Subjects', 'English, Maths')
     app.results.should_Have_Exact_Texts('Hobbies', 'Sports')
     app.results.should_Have_Exact_Texts('Picture', 'котик.png')

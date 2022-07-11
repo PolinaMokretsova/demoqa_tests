@@ -56,10 +56,7 @@ class StudentRegistrationForm:
         city = Dropdown(browser.element('#city'))
         city.select(option='Karnal')
 
-    def addSubjects(self, *names, autocomplete: Optional[str] = None):
+    def addSubjects(self, *names):
         for name in names:
-            TagsInput('subjectsInput').add(name)
+            TagsInput(browser.element('#subjectsInput')).add(name)
         return self
-     #subjects = TagsInput(browser.element('#subjectsInput'))
-    # subjects.add('Eng', autocomplete='English').add('Maths')
-
