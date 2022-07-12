@@ -1,5 +1,4 @@
 from typing import Optional
-
 from selene import have
 from selene.core.entity import SeleneElement
 from selene.support.shared import browser

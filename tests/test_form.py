@@ -1,5 +1,5 @@
 
-from selene import have, command
+from selene import have
 from selene.support.shared import browser
 from demoqa_tests.controls.datepicker import  DatePicker
 from demoqa_tests.controls.dropdown import Dropdown
@@ -21,8 +21,8 @@ def test_submit_form():
 
     browser.element('#userNumber').type('8123456789')
 
-    DateOfBirth = DatePicker(browser.element('#dateOfBirthInput'))
-    DateOfBirth.explicit_input(option= '31 Jul 1980')
+    Date_Of_Birth = DatePicker(browser.element('#dateOfBirthInput'))
+    Date_Of_Birth.explicit_input(option= '31 Jul 1980')
 
     subjects = TagsInput(browser.element('#subjectsInput'))
     subjects.add('Eng', autocomplete='English')
@@ -52,7 +52,7 @@ def test_submit_form():
     result.cells_of_row(1).should(have.exact_texts('Student Email', 'Polina@polina.com'))
     result.cells_of_row(2).should(have.exact_texts('Gender', 'Female'))
     result.cells_of_row(3).should(have.exact_texts('Mobile', '8123456789'))
-    result.cells_of_row(4).should(have.exact_texts('Date of Birth', '11 July,2022'))
+    result.cells_of_row(4).should(have.exact_texts('Date of Birth', '12 July,2022'))
     result.cells_of_row(5).should(have.exact_texts('Subjects', 'English, Maths'))
     result.cells_of_row(6).should(have.exact_texts('Hobbies', 'Sports'))
     result.cells_of_row(7).should(have.exact_texts('Picture', 'котик.png'))
