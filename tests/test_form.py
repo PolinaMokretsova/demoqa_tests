@@ -6,25 +6,25 @@ def test_submit_form():
     browser.open('/automation-practice-form')
 
     # when
-    app.form.setFirstName('Polina').setLastName('Mokretsova').setEmail('Polina@polina.com')
+    app.form.set_FirstName('Polina').set_LastName('Mokretsova').set_Email('Polina@polina.com')
 
-    app.form.addGender('Female')
+    app.form.add_Gender('Female')
 
-    app.form.addNumber('8123456789')
+    app.form.add_Number('8123456789')
 
     app.form.set_birth_date('31 Jul 1980')
 
-    app.form.addSubjects('English', 'Maths')
+    app.form.add_Subjects('English', 'Maths')
 
-    app.form.addHobbies('Sports')
+    app.form.add_Hobbies('Sports')
 
-    app.form.uploadPicture('котик.png')
+    app.form.upload_Picture('котик.png')
 
-    app.form.setAddress('Yekaterinburg')
+    app.form.set_Address('Yekaterinburg')
 
-    app.form.setStates('Haryana')
+    app.form.set_States('Haryana')
 
-    app.form.setCities('Karnal')
+    app.form.set_Cities('Karnal')
 
     app.form.submit()
 

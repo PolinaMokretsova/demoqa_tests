@@ -7,15 +7,15 @@ from demoqa_tests.model.controls.tags_input_ import TagsInput
 
 class StudentRegistrationForm:
 
-    def setFirstName(self, value):
+    def set_FirstName(self, value):
         browser.element('#firstName').type('Polina')
         return self
 
-    def setLastName(self, value):
+    def set_LastName(self, value):
         browser.element('#lastName').type('Mokretsova')
         return self
 
-    def setEmail(self, value):
+    def set_Email(self, value):
         browser.element('#userEmail').type('Polina@polina.com')
         return self
 
@@ -27,32 +27,32 @@ class StudentRegistrationForm:
     def submit(self):
         browser.element('#submit').click()
 
-    def setAddress(self, param):
+    def set_Address(self, param):
         browser.element('#currentAddress').type('Yekatetinburg')
 
-    def uploadPicture(self, param):
+    def upload_Picture(self, param):
         browser.element('#uploadPicture').send_keys(resourse('котик.png'))
 
-    def addHobbies(self, param):
+    def add_Hobbies(self, param):
         Sports = '[for="hobbies-checkbox-1"]'
         browser.element(Sports).click()
 
-    def addNumber(self, param):
+    def add_Number(self, param):
         browser.element('#userNumber').type('8123456789')
 
-    def addGender(self, param):
+    def add_Gender(self, param):
         Female = '[for=gender-radio-2]'
         browser.element(Female).click()
 
-    def setStates(self, param):
+    def set_States(self, param):
         states = Dropdown(browser.element('#state'))
         states.select(option='Haryana')
 
-    def setCities(self, param):
+    def set_Cities(self, param):
         city = Dropdown(browser.element('#city'))
         city.select(option='Karnal')
 
-    def addSubjects(self, *names):
+    def add_Subjects(self, *names):
         for name in names:
             TagsInput(browser.element('#subjectsInput')).add(name)
         return self
