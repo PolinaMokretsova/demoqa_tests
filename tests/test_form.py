@@ -33,7 +33,7 @@ def test_submit_form():
     app.results.should_Have_Exact_Texts('Student Email', 'Polina@polina.com')
     app.results.should_Have_Exact_Texts('Gender', 'Female')
     app.results.should_Have_Exact_Texts('Mobile', '8123456789')
-    app.results.should_Have_Exact_Texts('Date of Birth', '12 July,2022')
+    app.results.should_Have_Exact_Texts('Date of Birth', '13 July,2022')
     app.results.should_Have_Exact_Texts('Subjects', 'English, Maths')
     app.results.should_Have_Exact_Texts('Hobbies', 'Sports')
     app.results.should_Have_Exact_Texts('Picture', 'котик.png')
