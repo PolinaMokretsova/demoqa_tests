@@ -16,7 +16,7 @@ class ModalDialog:
         self.table.cells_of_row(1).should(have.exact_texts('Student Email', 'Polina@polina.com'))
         self.table.cells_of_row(2).should(have.exact_texts('Gender', 'Female'))
         self.table.cells_of_row(3).should(have.exact_texts('Mobile', '8123456789'))
-        self.table.cells_of_row(4).should(have.exact_texts('Date of Birth', '14 July,2022'))
+        self.table.cells_of_row(4).should(have.exact_texts('Date of Birth', '15 July,2022'))
         self.table.cells_of_row(5).should(have.exact_texts('Subjects', 'English, Maths'))
         self.table.cells_of_row(6).should(have.exact_texts('Hobbies', 'Sports'))
         self.table.cells_of_row(7).should(have.exact_texts('Picture', 'котик.png'))
