@@ -8,37 +8,37 @@ from demoqa_tests.model.controls.tags_input_ import TagsInput
 class StudentRegistrationForm:
 
     def set_FirstName(self, value):
-        browser.element('#firstName').type('Polina')
+        browser.element('#firstName').type(value)
         return self
 
     def set_LastName(self, value):
-        browser.element('#lastName').type('Mokretsova')
+        browser.element('#lastName').type(value)
         return self
 
     def set_Email(self, value):
-        browser.element('#userEmail').type('Polina@polina.com')
+        browser.element('#userEmail').type(value)
         return self
 
     def set_birth_date(self, param):
         Date_Of_Birth = DatePicker(browser.element('#dateOfBirthInput'))
-        Date_Of_Birth.explicit_input(option='31 Jul 1980')
+        Date_Of_Birth.explicit_input(option=param)
         return self
 
     def submit(self):
         browser.element('#submit').click()
 
     def set_Address(self, param):
-        browser.element('#currentAddress').type('Yekatetinburg')
+        browser.element('#currentAddress').type(param)
 
     def upload_Picture(self, param):
-        browser.element('#uploadPicture').send_keys(resourse('котик.png'))
+        browser.element('#uploadPicture').send_keys(resourse(param))
 
     def add_Hobbies(self, param):
         Sports = '[for="hobbies-checkbox-1"]'
         browser.element(Sports).click()
 
     def add_Number(self, param):
-        browser.element('#userNumber').type('8123456789')
+        browser.element('#userNumber').type(param)
 
     def add_Gender(self, param):
         Female = '[for=gender-radio-2]'
@@ -46,11 +46,11 @@ class StudentRegistrationForm:
 
     def set_States(self, param):
         states = Dropdown(browser.element('#state'))
-        states.select(option='Haryana')
+        states.select(option=param)
 
     def set_Cities(self, param):
         city = Dropdown(browser.element('#city'))
-        city.select(option='Karnal')
+        city.select(option=param)
 
     def add_Subjects(self, *names):
         for name in names:
