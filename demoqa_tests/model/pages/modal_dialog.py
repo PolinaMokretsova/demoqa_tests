@@ -15,5 +15,3 @@ class ModalDialog:
             self.element.all('tbody tr')[row_index].all('td')[column_index].should(have.text(values))
         return self
 
-
-#return self.element.all('tbody tr')[index].all('td')
