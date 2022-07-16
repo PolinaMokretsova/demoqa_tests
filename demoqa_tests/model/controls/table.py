@@ -8,4 +8,4 @@ class Table:
         self.element = element
 
     def cells_of_row(self, index):
-        return self.element.all('tbody tr')[index].all('td')
+        return self.element.all('tbody tr')[index].all('td').s
