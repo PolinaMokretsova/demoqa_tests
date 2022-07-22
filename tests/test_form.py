@@ -2,8 +2,10 @@ from selene.support.shared import browser
 from demoqa_tests.model import app
 import allure
 
-
 # @allure.title('Successfull fill form')
+from demoqa_tests.utils import attach
+
+
 def test_submit_form():
     browser.open('/automation-practice-form')
 
@@ -53,3 +55,7 @@ def test_submit_form():
         app.results.should_Have_Exact_Texts(7, 1, 'котик.png')
         app.results.should_Have_Exact_Texts(8, 1, 'Yekaterinburg')
         app.results.should_Have_Exact_Texts(9, 1, 'Haryana Karnal')
+
+    attach.add_html(browser)
+    attach.add_screenshots(browser)
+    attach.add_logs(browser)
