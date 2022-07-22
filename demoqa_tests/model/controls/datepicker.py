@@ -1,6 +1,6 @@
 from selene import command, have
-from selene.core.entity import SeleneElement, Element
-from selene.support.shared import browser
+from selene.core.entity import Element
+
 
 
 class DatePicker:
