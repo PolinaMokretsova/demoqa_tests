@@ -1,63 +1,41 @@
-
-from selene import have
 from selene.support.shared import browser
-from demoqa_tests.controls.datepicker import  DatePicker
-from demoqa_tests.controls.dropdown import Dropdown
-from demoqa_tests.controls.table import Table
-from demoqa_tests.controls.resourse import resourse
-from demoqa_tests.controls.tags_input_ import TagsInput
+from demoqa_tests.model import app
 
 
 def test_submit_form():
     browser.open('/automation-practice-form')
 
-    #when
-    browser.element('#firstName').type('Polina')
-    browser.element('#lastName').type('Mokretsova')
-    browser.element('#userEmail').type('Polina@polina.com')
+    # when
+    app.form.set_FirstName('Polina').set_LastName('Mokretsova').set_Email('Polina@polina.com')
 
-    gender_female = '[for=gender-radio-2]'
-    browser.element(gender_female).click()
+    app.form.add_Gender('Female')
 
-    browser.element('#userNumber').type('8123456789')
+    app.form.add_Number('8123456789')
 
-    Date_Of_Birth = DatePicker(browser.element('#dateOfBirthInput'))
-    Date_Of_Birth.explicit_input(option= '31 Jul 1980')
+    app.form.set_birth_date('31 Jul 1980')
 
-    subjects = TagsInput(browser.element('#subjectsInput'))
-    subjects.add('Eng', autocomplete='English')
-    subjects.add('Maths')
+    app.form.add_Subjects('English', 'Maths')
 
+    app.form.add_Hobbies('Sports')
 
-    Hobbie_sports = '[for="hobbies-checkbox-1"]'
-    browser.element(Hobbie_sports).click()
+    app.form.upload_Picture('котик.png')
 
-    browser.element('#uploadPicture').send_keys(resourse('котик.png'))
+    app.form.set_Address('Yekaterinburg')
 
-    browser.element('#currentAddress').type('Yekatetinburg')
+    app.form.set_States('Haryana')
 
-    states = Dropdown(browser.element('#state'))
-    states.select(option='Haryana')
+    app.form.set_Cities('Karnal')
 
-    city = Dropdown(browser.element('#city'))
-    city.select(option='Karnal')
-
-    browser.element('#submit').click()
+    app.form.submit()
 
     # then
-    browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
-
-    result = Table(browser.element('.modal-content .table'))
-    result.cells_of_row(0).should(have.exact_texts('Student Name', 'Polina Mokretsova'))
-    result.cells_of_row(1).should(have.exact_texts('Student Email', 'Polina@polina.com'))
-    result.cells_of_row(2).should(have.exact_texts('Gender', 'Female'))
-    result.cells_of_row(3).should(have.exact_texts('Mobile', '8123456789'))
-    result.cells_of_row(4).should(have.exact_texts('Date of Birth', '12 July,2022'))
-    result.cells_of_row(5).should(have.exact_texts('Subjects', 'English, Maths'))
-    result.cells_of_row(6).should(have.exact_texts('Hobbies', 'Sports'))
-    result.cells_of_row(7).should(have.exact_texts('Picture', 'котик.png'))
-    result.cells_of_row(8).should(have.exact_texts('Address', 'Yekatetinburg'))
-    result.cells_of_row(9).should(have.exact_texts('State and City', 'Haryana Karnal'))
-
-
-
+    app.results.should_Have_Exact_Texts(0, 1, 'Polina Mokretsova')
+    app.results.should_Have_Exact_Texts(1, 1, 'Polina@polina.com')
+    app.results.should_Have_Exact_Texts(2, 1, 'Female')
+    app.results.should_Have_Exact_Texts(3, 1, '8123456789')
+    app.results.should_Have_Exact_Texts(4, 1, '22 July,2022')
+    app.results.should_Have_Exact_Texts(5, 1, 'English, Maths')
+    app.results.should_Have_Exact_Texts(6, 1, 'Sports')
+    app.results.should_Have_Exact_Texts(7, 1, 'котик.png')
+    app.results.should_Have_Exact_Texts(8, 1, 'Yekaterinburg')
+    app.results.should_Have_Exact_Texts(9, 1, 'Haryana Karnal')
