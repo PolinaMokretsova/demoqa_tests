@@ -1,12 +1,30 @@
 from selene.support.shared import browser
+from selenium.webdriver.chrome.options import Options
+
 from demoqa_tests.model import app
 import allure
-
-# @allure.title('Successfull fill form')
 from demoqa_tests.utils import attach
+from selenium import webdriver
 
 
 def test_submit_form():
+    options= Options()
+    selenoid_capabilities = {
+        "browserName": "chrome",
+        "browserVersion": "100.0",
+        "selenoid:options": {
+            "enableVNC": True,
+            "enableVideo": False
+        }
+    }
+    options.capabilities.update(selenoid_capabilities)
+
+    driver = webdriver.Remote(
+        command_executor="https://user1:1234@selenoid.autotests.cloud/wd/hub",
+        options=options)
+
+    browser.config.driver = driver
+
     browser.open('/automation-practice-form')
 
     # when
@@ -49,7 +67,7 @@ def test_submit_form():
         app.results.should_Have_Exact_Texts(1, 1, 'Polina@polina.com')
         app.results.should_Have_Exact_Texts(2, 1, 'Female')
         app.results.should_Have_Exact_Texts(3, 1, '8123456789')
-        app.results.should_Have_Exact_Texts(4, 1, '22 July,2022')
+        app.results.should_Have_Exact_Texts(4, 1, '23 July,2022')
         app.results.should_Have_Exact_Texts(5, 1, 'English, Maths')
         app.results.should_Have_Exact_Texts(6, 1, 'Sports')
         app.results.should_Have_Exact_Texts(7, 1, 'котик.png')
