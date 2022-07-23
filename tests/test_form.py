@@ -1,30 +1,9 @@
 from selene.support.shared import browser
-from selenium.webdriver.chrome.options import Options
-
 from demoqa_tests.model import app
 import allure
-from demoqa_tests.utils import attach
-from selenium import webdriver
 
 
 def test_submit_form():
-    options= Options()
-    selenoid_capabilities = {
-        "browserName": "chrome",
-        "browserVersion": "100.0",
-        "selenoid:options": {
-            "enableVNC": True,
-            "enableVideo": False
-        }
-    }
-    options.capabilities.update(selenoid_capabilities)
-
-    driver = webdriver.Remote(
-        command_executor="https://user1:1234@selenoid.autotests.cloud/wd/hub",
-        options=options)
-
-    browser.config.driver = driver
-
     browser.open('/automation-practice-form')
 
     # when
@@ -46,8 +25,8 @@ def test_submit_form():
     with allure.step("add hobbies"):
         app.form.add_Hobbies('Sports')
 
-   # with allure.step("upload picture"):
-        #app.form.upload_Picture('котик.png')
+    # with allure.step("upload picture"):
+    # app.form.upload_Picture('котик.png')
 
     with allure.step("set address"):
         app.form.set_Address('Yekaterinburg')
@@ -70,11 +49,6 @@ def test_submit_form():
         app.results.should_Have_Exact_Texts(4, 1, '23 July,2022')
         app.results.should_Have_Exact_Texts(5, 1, 'English, Maths')
         app.results.should_Have_Exact_Texts(6, 1, 'Sports')
-        #app.results.should_Have_Exact_Texts(7, 1, 'котик.png')
+        # app.results.should_Have_Exact_Texts(7, 1, 'котик.png')
         app.results.should_Have_Exact_Texts(8, 1, 'Yekaterinburg')
         app.results.should_Have_Exact_Texts(9, 1, 'NCR Delhi')
-
-    attach.add_html(browser)
-    attach.add_screenshots(browser)
-    attach.add_logs(browser)
-    attach.add_video(browser)
