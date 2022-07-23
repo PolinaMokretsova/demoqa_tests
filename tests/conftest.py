@@ -3,10 +3,8 @@ import pytest
 from selene.support.shared import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selene import Browser, Config
 from dotenv import load_dotenv
 from demoqa_tests.utils import attach
-
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -17,14 +15,6 @@ def browser_config():
     browser.config._window_height = 1000
 
 
-#DEFAULT_BROWSER_VERSION = "100.0"
-
-
-#def pytest_addoption(parser):
-  #  parser.addoption(
-    #    '--browser_version',
-   #     default='100.0'
-  #  )
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -53,7 +43,7 @@ def setup_browser():
         options=options
     )
     browser.config.driver = driver
-    #browser = Browser(Config(driver))
+    # browser = Browser(Config(driver))
     yield browser
 
     attach.add_html(browser)
@@ -61,5 +51,3 @@ def setup_browser():
     attach.add_logs(browser)
     attach.add_video(browser)
     browser.quit()
-
-
