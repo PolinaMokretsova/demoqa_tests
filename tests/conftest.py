@@ -1,5 +1,6 @@
 import os
 import pytest
+from dotenv import load_dotenv
 from selene import Browser, Config
 from selene.support.shared import browser
 from selenium import webdriver
@@ -14,6 +15,21 @@ def browser_config():
     browser.config.browser_name = 'chrome'
     browser.config.window_width = 500
     browser.config._window_height = 1000
+
+
+DEFAULT_BROWSER_VERSION = "100.0"
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        '--browser_version',
+        default='100.0'
+    )
+
+
+@pytest.fixture(scope='session', autouse=True)
+def load_env():
+    load_dotenv()
 
 
 @pytest.fixture(scope='function')

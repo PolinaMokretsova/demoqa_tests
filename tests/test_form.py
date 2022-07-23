@@ -4,6 +4,8 @@ import allure
 
 
 def test_submit_form(setup_browser):
+
+    browser = setup_browser
     browser.open('/automation-practice-form')
 
     # when
