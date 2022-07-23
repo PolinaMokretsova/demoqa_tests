@@ -77,3 +77,4 @@ def test_submit_form():
     attach.add_html(browser)
     attach.add_screenshots(browser)
     attach.add_logs(browser)
+    attach.add_video(browser)
