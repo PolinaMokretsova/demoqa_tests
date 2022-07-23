@@ -1,12 +1,12 @@
-from selene.support.shared import browser
 from demoqa_tests.model import app
 import allure
 
 
 def test_submit_form(setup_browser):
-
     browser = setup_browser
-    browser.open('/automation-practice-form')
+
+    with allure.step("browser open"):
+        browser.open("https://demoqa.com/automation-practice-form")
 
     # when
     with allure.step("set firstname, lastname, email"):

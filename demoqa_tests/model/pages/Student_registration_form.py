@@ -3,6 +3,7 @@ from demoqa_tests.model.controls.datepicker import DatePicker
 from demoqa_tests.model.controls.dropdown import Dropdown
 from demoqa_tests.model.controls.resourse import resourse
 from demoqa_tests.model.controls.tags_input_ import TagsInput
+from tests.conftest import setup_browser
 
 
 class StudentRegistrationForm:
