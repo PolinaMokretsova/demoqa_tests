@@ -3,7 +3,7 @@ from demoqa_tests.model import app
 import allure
 
 
-def test_submit_form():
+def test_submit_form(setup_browser):
     browser.open('/automation-practice-form')
 
     # when
