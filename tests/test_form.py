@@ -48,7 +48,7 @@ def test_submit_form(setup_browser):
         app.results.should_Have_Exact_Texts(1, 1, 'Polina@polina.com')
         app.results.should_Have_Exact_Texts(2, 1, 'Female')
         app.results.should_Have_Exact_Texts(3, 1, '8123456789')
-        app.results.should_Have_Exact_Texts(4, 1, '24 July,2022')
+        app.results.should_Have_Exact_Texts(4, 1, '25 July,2022')
         app.results.should_Have_Exact_Texts(5, 1, 'English, Maths')
         app.results.should_Have_Exact_Texts(6, 1, 'Sports')
         # app.results.should_Have_Exact_Texts(7, 1, 'котик.png')
