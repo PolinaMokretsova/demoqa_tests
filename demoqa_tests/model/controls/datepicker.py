@@ -2,7 +2,6 @@ from selene import command, have
 from selene.core.entity import Element
 
 
-
 class DatePicker:
     def __init__(self, element: Element):
         self.element = element

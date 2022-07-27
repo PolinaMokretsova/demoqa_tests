@@ -2,6 +2,7 @@ from selene import command, have
 from selene.core.entity import Element
 from selene.support.shared import browser
 
+
 class Dropdown:
     def __init__(self, element: Element):
         self.element = element
@@ -14,7 +15,3 @@ class Dropdown:
         self.element.element(
             '[id^=react-select-][id*=-input]'
         ).type(option).press_enter()
-
-
-
-
