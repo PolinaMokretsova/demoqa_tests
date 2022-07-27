@@ -11,7 +11,7 @@ from demoqa_tests.utils import attach
 def browser_config():
     browser.config.base_url = 'https://demoqa.com'
     browser.config.browser_name = 'chrome'
-    browser.config.window_width = 1100
+    browser.config.window_width = 700
     browser.config._window_height = 1000
 
 
