@@ -9,12 +9,14 @@ from demoqa_tests.utils import attach
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_config():
-    browser.config.base_url = 'https://demoqa.com'
-    browser.config.browser_name = 'chrome'
-    browser.config.window_width = 500
-    browser.config._window_height = 950
-
-
+    browser.config.base_url = os.getenv('selene.base_url', 'https://demoqa.com')
+    browser.config.browser_name = os.getenv('selene.browser_name', 'chrome')
+    browser.config.hold_browser_open = (
+            os.getenv('selene.hold_browser_open', 'false').lower() == 'true'
+    )
+    browser.config.timeout = float(os.getenv('selene.timeout', '3'))
+    browser.config.window_width = 1920
+    browser.config.window_height = 1920
 
 
 @pytest.fixture(scope='session', autouse=True)
